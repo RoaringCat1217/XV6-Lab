@@ -1,0 +1,25 @@
+1. 
+a0, a1 and a2 contain arguments to functions. a0 holds the pointer to string "d %d\n", 
+a1 holds the value of argument f(8)+1, which is computed by the compiler as 12, and a2
+holds 13.
+
+2.
+No call to function f is made in the assembly. Neither does g. When compiling function
+f, the compiler inlines g so function f is the same as g and does not call g. In main, 
+the expression f(8)+1 is optimized and computed as 12. So in the assembly, 12 is passed
+as an argument instead, and main does not call f.
+
+3.
+printf is located at 0x630 in virtual address.
+
+4.
+ra holds 0x38, the address of the command right after the one that calls printf.
+
+5.
+He110 World
+If RISC-V were big-endian, i should be set to 0x726c6400 and 57616 does not need to change.
+
+6.
+What will be printed is not deterministic. There is supposed to be a second argument passed 
+to printf, but there isn't. Because in RISC-V the second argument is passed in register a1, 
+whatever a1 holds when printf is called will be passed as the second argument.

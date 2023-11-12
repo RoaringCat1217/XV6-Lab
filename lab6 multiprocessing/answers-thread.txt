@@ -1,0 +1,11 @@
+If 2 threads t1 and t2 both want to insert to a bucket, and enter function insert with the same p and n, e.g.
+    ->entry1->entry2->entry3->NULL
+Say thread t1 completes insert first
+    ->t1->entry1->entry2->entry3->NULL
+thread t2 does not know about the above modification. It will still take entry1 as the first entry in the chain.
+    ->t2->entry1->entry2->entry3->NULL
+            ^
+            |
+            t1
+So no pointer is pointed to t1, and there is no way to access t1. Entry t1 is lost.
+This situation can happen from time to time, and a whole bunch of entries are lost.

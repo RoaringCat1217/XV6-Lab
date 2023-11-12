@@ -1,0 +1,6 @@
+1. page 0 contains a mapping from virtual address 0x0 to physical address 0x87f6b000. This page can be read, written or executed by a user.
+page 2 contains a mapping from virtual address 0x2000 to physical address 0x87f67000. This page can be read, written or executed by a user.
+A user cannot read/write page1. Its PTE_U bit is 0.
+
+2. len could become so large that srcva + len overflows. So the kernel stack overflows. If len is -1 (which is 2^64-1 in uint64), the first
+two tests are passed but the third one fails.

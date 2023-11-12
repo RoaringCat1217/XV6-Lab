@@ -1,0 +1,15 @@
+
+xv6 kernel is booting
+
+hart 2 starting
+hart 1 starting
+init: starting sh
+$ mkdir 22gpeczm
+$ echo > 22gpeczm/asAuLSeR
+$ mkdir 22gpeczm/K90TOpEv
+$ echo > 22gpeczm/K90TOpEv/asAuLSeR
+$ mkdir yo9gAuDI
+$ echo > yo9gAuDI/asAuLSeR
+$ find . asAuLSeR
+exec find failed
+$ qemu-system-riscv64: terminating on signal 15 from pid 11165 (make)
